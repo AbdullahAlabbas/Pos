@@ -1,0 +1,258 @@
+[
+  {
+    "id": 1,
+    "name": "Aminah Al-Baqari",
+    "loyaltyPoints": 3500,
+    "phone": "(966) 555-0222",
+    "email": "aminah@icloud.com",
+    "lastPurchase": "21/6/2015"
+  },
+  {
+    "id": 2,
+    "name": "Hussain Al-Saqqaf",
+    "loyaltyPoints": 2900,
+    "phone": "(966) 555-0351",
+    "email": "hussain@gmail.com",
+    "lastPurchase": "13/3/2020"
+  },
+  {
+    "id": 3,
+    "name": "Mohammad Al-Sharif",
+    "loyaltyPoints": 687,
+    "phone": "(966) 555-0666",
+    "email": "mohammad@yahoo.com",
+    "lastPurchase": "22/12/2018"
+  },
+  {
+    "id": 4,
+    "name": "Fatimah Al-Harbi",
+    "loyaltyPoints": 1340,
+    "phone": "(966) 555-0789",
+    "email": "fatimah@hotmail.com",
+    "lastPurchase": "30/10/2019"
+  },
+  {
+    "id": 5,
+    "name": "Sami Al-Fayez",
+    "loyaltyPoints": 550,
+    "phone": "(966) 555-0912",
+    "email": "sami@live.com",
+    "lastPurchase": "16/2/2018"
+  },
+  {
+    "id": 6,
+    "name": "Noura Al-Mutairi",
+    "loyaltyPoints": 650,
+    "phone": "(966) 555-1034",
+    "email": "noura@protonmail.com",
+    "lastPurchase": "7/7/2022"
+  },
+  {
+    "id": 7,
+    "name": "Fahad Al-Khalif",
+    "loyaltyPoints": 2330,
+    "phone": "(966) 555-1165",
+    "email": "fahad@gmail.com",
+    "lastPurchase": "14/4/2014"
+  },
+  {
+    "id": 8,
+    "name": "Salman Al-Qahtani",
+    "loyaltyPoints": 4302,
+    "phone": "(966) 555-1278",
+    "email": "salman@amazon.com",
+    "lastPurchase": "3/8/2019"
+  },
+  {
+    "id": 9,
+    "name": "Maha Al-Subaie",
+    "loyaltyPoints": 170,
+    "phone": "(966) 555-1389",
+    "email": "maha@aol.com",
+    "lastPurchase": "22/1/2021"
+  },
+  {
+    "id": 10,
+    "name": "Reem Al-Mansour",
+    "loyaltyPoints": 1523,
+    "phone": "(966) 555-1490",
+    "email": "reem@outlook.com",
+    "lastPurchase": "5/9/2013"
+  },
+  {
+    "id": 11,
+    "name": "Faisal Al-Dosari",
+    "loyaltyPoints": 765,
+    "phone": "(966) 555-1501",
+    "email": "faisal@apple.com",
+    "lastPurchase": "15/3/2012"
+  },
+  {
+    "id": 12,
+    "name": "Aisha Al-Harthi",
+    "loyaltyPoints": 2459,
+    "phone": "(966) 555-1612",
+    "email": "aisha@googlemail.com",
+    "lastPurchase": "18/6/2020"
+  },
+    {
+      "id": 13,
+      "name": "Layla Al-Naimi",
+      "loyaltyPoints": 1987,
+      "phone": "(966) 555-1723",
+      "email": "layla@outlook.com",
+      "lastPurchase": "11/11/2019"
+    },
+    {
+      "id": 14,
+      "name": "Khalid Al-Muhanna",
+      "loyaltyPoints": 1120,
+      "phone": "(966) 555-1834",
+      "email": "khalid@gmail.com",
+      "lastPurchase": "27/2/2021"
+    },
+    {
+      "id": 15,
+      "name": "Sara Al-Dosari",
+      "loyaltyPoints": 920,
+      "phone": "(966) 555-1945",
+      "email": "sara@hotmail.com",
+      "lastPurchase": "8/9/2020"
+    },
+    {
+      "id": 16,
+      "name": "Yousef Al-Farhan",
+      "loyaltyPoints": 750,
+      "phone": "(966) 555-2056",
+      "email": "yousef@icloud.com",
+      "lastPurchase": "15/5/2018"
+    },
+    {
+      "id": 17,
+      "name": "Nadia Al-Khateeb",
+      "loyaltyPoints": 1480,
+      "phone": "(966) 555-2167",
+      "email": "nadia@protonmail.com",
+      "lastPurchase": "3/12/2022"
+    },
+    {
+      "id": 18,
+      "name": "Ahmed Al-Ghamdi",
+      "loyaltyPoints": 3030,
+      "phone": "(966) 555-2278",
+      "email": "ahmed@yahoo.com",
+      "lastPurchase": "19/8/2017"
+    },
+    {
+      "id": 19,
+      "name": "Noor Al-Shehri",
+      "loyaltyPoints": 2860,
+      "phone": "(966) 555-2389",
+      "email": "noor@live.com",
+      "lastPurchase": "22/10/2021"
+    },
+    {
+      "id": 20,
+      "name": "Munira Al-Ajmi",
+      "loyaltyPoints": 670,
+      "phone": "(966) 555-2500",
+      "email": "munira@gmail.com",
+      "lastPurchase": "16/4/2019"
+    },
+    {
+      "id": 21,
+      "name": "Omar Al-Khalifa",
+      "loyaltyPoints": 1995,
+      "phone": "(966) 555-2611",
+      "email": "omar@apple.com",
+      "lastPurchase": "5/6/2022"
+    },
+    {
+      "id": 22,
+      "name": "Zahra Al-Mansoori",
+      "loyaltyPoints": 3200,
+      "phone": "(966) 555-2722",
+      "email": "zahra@outlook.com",
+      "lastPurchase": "14/3/2018"
+    },
+      {
+        "id": 23,
+        "name": "Abdulrahman Al-Sulaiman",
+        "loyaltyPoints": 2120,
+        "phone": "(966) 555-2833",
+        "email": "abdulrahman@hotmail.com",
+        "lastPurchase": "20/2/2021"
+      },
+      {
+        "id": 24,
+        "name": "Hana Al-Fahad",
+        "loyaltyPoints": 1350,
+        "phone": "(966) 555-2944",
+        "email": "hana@icloud.com",
+        "lastPurchase": "13/1/2022"
+      },
+      {
+        "id": 25,
+        "name": "Ali Al-Nasser",
+        "loyaltyPoints": 1580,
+        "phone": "(966) 555-3055",
+        "email": "ali@gmail.com",
+        "lastPurchase": "9/11/2020"
+      },
+      {
+        "id": 26,
+        "name": "Lamia Al-Mayouf",
+        "loyaltyPoints": 890,
+        "phone": "(966) 555-3166",
+        "email": "lamia@yahoo.com",
+        "lastPurchase": "28/3/2019"
+      },
+      {
+        "id": 27,
+        "name": "Tariq Al-Hassan",
+        "loyaltyPoints": 1760,
+        "phone": "(966) 555-3277",
+        "email": "tariq@protonmail.com",
+        "lastPurchase": "17/5/2018"
+      },
+      {
+        "id": 28,
+        "name": "Fatima Al-Qasim",
+        "loyaltyPoints": 2020,
+        "phone": "(966) 555-3388",
+        "email": "fatima@outlook.com",
+        "lastPurchase": "30/7/2020"
+      },
+      {
+        "id": 29,
+        "name": "Mohammed Al-Amari",
+        "loyaltyPoints": 1670,
+        "phone": "(966) 555-3499",
+        "email": "mohammed@live.com",
+        "lastPurchase": "2/10/2021"
+      },
+      {
+        "id": 30,
+        "name": "Saeed Al-Mohammed",
+        "loyaltyPoints": 1840,
+        "phone": "(966) 555-3600",
+        "email": "saeed@amazon.com",
+        "lastPurchase": "25/8/2017"
+      },
+      {
+        "id": 31,
+        "name": "Nouf Al-Rashid",
+        "loyaltyPoints": 1330,
+        "phone": "(966) 555-3711",
+        "email": "nouf@aol.com",
+        "lastPurchase": "10/12/2018"
+      },
+      {
+        "id": 32,
+        "name": "Ibrahim Al-Mubarak",
+        "loyaltyPoints": 2210,
+        "phone": "(966) 555-3822",
+        "email": "ibrahim@apple.com",
+        "lastPurchase": "6/2/2023"
+      }
+]
