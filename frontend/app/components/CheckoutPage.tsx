@@ -47,7 +47,7 @@ const CheckoutPage = ({ amount }: { amount: number }) => {
       elements,
       clientSecret,
       confirmParams: {
-        return_url: `https://pos-sigma-nine.vercel.app/payment-success?amount=${amount}`,
+        return_url: `https://positiveflow.vercel.app/payment-success?amount=${amount}`,
       },
     });
 
