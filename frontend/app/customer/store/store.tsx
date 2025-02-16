@@ -123,24 +123,24 @@ const Store = ({ selectedDraft }) => {
   };
 
   /********************************************
-   *   IMAGE UPLOAD & OCR + OpenAI REFINE
+   *   IMAGE UPLOAD & ANALYSIS + OPENAI REFINE
    ********************************************/
   const [image, setImage] = useState<string | null>(null);
   const [textFromImage, setTextFromImage] = useState('');
   const [refinedText, setRefinedText] = useState('');
   const [matchedProducts, setMatchedProducts] = useState([]);
 
-  // Ref for the OCR Analysis section to scroll into view
-  const ocrAnalysisRef = useRef<HTMLDivElement>(null);
+  // Ref for the Image Analysis section to scroll into view
+  const analysisRef = useRef<HTMLDivElement>(null);
 
-  // Scroll smoothly to the OCR Analysis section
+  // Scroll smoothly to the Image Analysis section
   const scrollToAnalysis = () => {
-    if (ocrAnalysisRef.current) {
-      ocrAnalysisRef.current.scrollIntoView({ behavior: 'smooth' });
+    if (analysisRef.current) {
+      analysisRef.current.scrollIntoView({ behavior: 'smooth' });
     }
   };
 
-  // Call your /api/refineText endpoint with raw OCR text to get refined text
+  // Call your /api/refineText endpoint with raw extracted text to get enhanced text
   const refineText = async (rawText: string): Promise<string> => {
     try {
       const response = await fetch('/api/refineText', {
@@ -161,7 +161,7 @@ const Store = ({ selectedDraft }) => {
 
   // Handle file upload
   const handleFileUpload = (event) => {
-    // Scroll immediately when "Upload Image" is clicked
+    // Scroll immediately when "Choose Image" is clicked
     scrollToAnalysis();
 
     const file = event.target.files?.[0];
@@ -176,40 +176,39 @@ const Store = ({ selectedDraft }) => {
     reader.readAsDataURL(file);
   };
 
-  // Perform OCR using Tesseract.js, then refine the text with OpenAI
-// Example modification in recognizeText to handle segmentation
-const recognizeText = async (img: string) => {
+  // Perform OCR using Tesseract.js, then enhance the text with OpenAI
+  const recognizeText = async (img: string) => {
     try {
-        const result = await Tesseract.recognize(img, 'eng', {
-            logger: m => console.log('Tesseract log:', m)
-        });
-        const ocrText = result.data.text.trim();
-        setTextFromImage(ocrText);
+      const result = await Tesseract.recognize(img, 'eng', {
+        logger: m => console.log('Tesseract log:', m)
+      });
+      const ocrText = result.data.text.trim();
+      setTextFromImage(ocrText);
 
-        // Refine OCR text with OpenAI (or fallback)
-        const refined = await refineText(ocrText);
-        setRefinedText(refined);
+      // Enhance extracted text with OpenAI (or fallback)
+      const enhanced = await refineText(ocrText);
+      setRefinedText(enhanced);
 
-        // Assume segmentation by commas for demonstration
-        const segments = refined.split(',').map(s => s.trim()).filter(s => s.length);
-        
-        // Use the segmented texts for searching products
-        searchProducts(segments);
+      // Assume segmentation by commas for demonstration
+      const segments = enhanced.split(',').map(s => s.trim()).filter(s => s.length);
+      
+      // Use the segmented texts for searching products
+      searchProducts(segments);
     } catch (err) {
-        console.error("OCR error:", err);
+      console.error("OCR error:", err);
     }
-};
+  };
 
-// Adjusted searchProducts to handle an array of segments
-const searchProducts = (segments) => {
+  // Adjusted searchProducts to handle an array of segments
+  const searchProducts = (segments) => {
     const matched = segments.flatMap(segment => {
-        return products.filter((product) =>
-            product.name.toLowerCase().includes(segment.toLowerCase()) ||
-            (product.description && product.description.toLowerCase().includes(segment.toLowerCase()))
-        );
+      return products.filter((product) =>
+        product.name.toLowerCase().includes(segment.toLowerCase()) ||
+        (product.description && product.description.toLowerCase().includes(segment.toLowerCase()))
+      );
     });
     setMatchedProducts(matched);
-};
+  };
 
   return (
     <div className="p-4 md:p-8 flex flex-col md:flex-row gap-4 bg-gray-100 min-h-screen">
@@ -284,7 +283,7 @@ const searchProducts = (segments) => {
       </div>
 
       {/* -------------------------------------
-                MAIN CONTENT (Products + OCR)
+                MAIN CONTENT (Products + Image Analysis)
       -------------------------------------- */}
       <div className="w-full md:w-3/4 flex flex-col gap-4">
         {/* -------- Products Section -------- */}
@@ -320,12 +319,10 @@ const searchProducts = (segments) => {
                   onChange={handleSearchChange}
                 />
 
-                {/* "Upload Image" button - scrolls to OCR Analysis immediately */}
-                <label
-                  className="btn bg-gray-800 text-white cursor-pointer"
-                >
+                {/* "Choose Image" button - scrolls to Image Analysis immediately */}
+                <label className="btn bg-gray-800 text-white cursor-pointer">
                   <FontAwesomeIcon icon={faShoppingCart} className="mr-2" />
-                  Upload Image
+                  Quick Checkout
                   <input
                     type="file"
                     accept="image/*"
@@ -368,21 +365,20 @@ const searchProducts = (segments) => {
           )}
         </div>
 
-        {/* -------- OCR Analysis Section (always rendered) -------- */}
+        {/* -------- Image Analysis Section (always rendered) -------- */}
         <div
-          ref={ocrAnalysisRef}
+          ref={analysisRef}
           className="bg-white p-4 rounded-lg shadow-md"
         >
-          <h2 className="text-xl font-bold mb-2">OCR Analysis</h2>
+          <h2 className="text-xl font-bold mb-2">Image Analysis</h2>
           <p className="text-sm text-gray-500 mb-4">
-            Below is your uploaded image and the extracted text. The AI-refined text
-            helps match with our product catalog more accurately.
+            Here’s the image you selected along with the text we extracted. We’ve enhanced the text to help match products more effectively.
           </p>
 
           {/* If nothing is uploaded, show a placeholder */}
           {!image && !textFromImage && !refinedText && (
             <p className="text-gray-400 italic">
-              No image uploaded yet. Click "Upload Image" above to get started.
+              No image selected yet. Click "Choose Image" above to get started.
             </p>
           )}
 
@@ -400,20 +396,20 @@ const searchProducts = (segments) => {
                 </div>
               )}
 
-              {/* Raw OCR Text */}
+              {/* Extracted Text */}
               {textFromImage && (
                 <div className="md:col-span-1">
-                  <h3 className="font-semibold mb-2">Raw OCR Text</h3>
+                  <h3 className="font-semibold mb-2">Extracted Text</h3>
                   <p className="p-2 bg-gray-50 border rounded">
                     {textFromImage}
                   </p>
                 </div>
               )}
 
-              {/* Refined Text */}
+              {/* Enhanced Text */}
               {refinedText && (
                 <div className="md:col-span-1">
-                  <h3 className="font-semibold mb-2">Refined Text</h3>
+                  <h3 className="font-semibold mb-2">Enhanced Text</h3>
                   <p className="p-2 bg-gray-50 border rounded">
                     {refinedText}
                   </p>
@@ -422,10 +418,10 @@ const searchProducts = (segments) => {
             </div>
           )}
 
-          {/* Matched Products */}
+          {/* Matching Items */}
           {matchedProducts.length > 0 && (
             <div className="mt-6">
-              <h3 className="font-semibold mb-3">Matched Products</h3>
+              <h3 className="font-semibold mb-3">Matching Items</h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
                 {matchedProducts.map((product) => (
                   <div
