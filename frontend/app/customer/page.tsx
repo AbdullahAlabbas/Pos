@@ -175,7 +175,7 @@ const PurchaseHistoryDashboard = () => {
                                         </button>
                                     </Link>
                                 )}
-                                <Link href="/customer" passHref>
+                                <Link href="/customer/Invoice" passHref>
                                     <button className="bg-gray-800 text-white px-4 py-1 rounded-md hover:scale-105 transition-transform">
                                         View
                                     </button>

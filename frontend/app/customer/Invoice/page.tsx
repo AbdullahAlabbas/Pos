@@ -25,7 +25,7 @@ const Invoice = () => {
   const router = useRouter();
 
   const handleCancel = () => {
-    router.push('/customer'); // Navigate to /customer page
+    router.push('/customer/store'); // Navigate to /customer page
   };
 
   const handlePrint = () => {
