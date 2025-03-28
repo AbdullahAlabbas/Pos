@@ -2,7 +2,6 @@ import { NextResponse } from 'next/server';
 import { GoogleGenerativeAI } from '@google/generative-ai';
 
 function getBackupCompletion(ocrText) {
-  console.log('🔄 Using backup completion method');
   const searchText = ocrText.toLowerCase();
   const refinedText = [];
 
@@ -29,7 +28,7 @@ function getBackupCompletion(ocrText) {
     }
   });
 
-  console.log('✅ Backup completion result:', refinedText.join(', '));
+  console.log(' Backup completion result:', refinedText.join(', '));
   return refinedText.join(', ');
 }
 
@@ -43,19 +42,19 @@ export async function POST(request) {
     const { ocrText } = body;
 
     if (!ocrText) {
-      console.log('❌ Error: No OCR text provided');
+      console.log(' Error: No OCR text provided');
       return NextResponse.json(
         { error: 'OCR text is required' },
         { status: 400 }
       );
     }
 
-    console.log('📝 Processing OCR text:', ocrText);
+    console.log('Processing OCR text:', ocrText);
 
     const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
     
     try {
-      console.log('🤖 Attempting to use Google Gemini API');
+      console.log(' Attempting to use Google Gemini API');
       
       const model = genAI.getGenerativeModel({ model: "gemini-pro" });
 
@@ -88,7 +87,7 @@ Output format: Just the corrected text, maintaining original separators (commas,
       });
 
     } catch (geminiError) {
-      console.error('❌ Gemini API Error:', geminiError);
+      console.error(' Gemini API Error:', geminiError);
 
       const backupText = getBackupCompletion(ocrText);
 
@@ -101,7 +100,7 @@ Output format: Just the corrected text, maintaining original separators (commas,
     }
 
   } catch (error) {
-    console.error('❌ Server Error:', error);
+    console.error(' Server Error:', error);
     return NextResponse.json(
       { error: error.message || 'Error processing text' },
       { status: 500 }
